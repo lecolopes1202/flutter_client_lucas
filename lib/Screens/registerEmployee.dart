@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:html';
 
 import 'package:Employee_Management/Model/EmployeeModel.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +15,7 @@ class registerEmployee extends StatefulWidget {
 
 Future<EmployeeModel> registerEmployees(
     String firstName, String lastName, BuildContext context) async {
-  var Url = "https://lippe-hero-app.herokuapp.com/addemployee";
+  var Url = "https://proj-lucas-server.herokuapp.com/addemployee";
   var response = await http.post(Url,
       headers: <String, String>{
         'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ class registerEmployeeState extends State<registerEmployee> {
     TextStyle textStyle = Theme.of(context).textTheme.subtitle2;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register Employee"),
+        title: Text("Register Hotel"),
       ),
       body: Form(
         child: Padding(
@@ -70,12 +71,12 @@ class registerEmployeeState extends State<registerEmployee> {
                     controller: firstController,
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'please enter your name';
+                        return 'please enter the name';
                       }
                     },
                     decoration: InputDecoration(
-                        labelText: 'First Name',
-                        hintText: 'Enter Your First Name',
+                        labelText: 'Name',
+                        hintText: 'Enter with the Hotel Name',
                         labelStyle: textStyle,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0))),
@@ -86,14 +87,14 @@ class registerEmployeeState extends State<registerEmployee> {
                   child: TextFormField(
                     style: textStyle,
                     controller: lastController,
-                    validator: (String value) {
+                    validator: (String value) { // Alex: Talvez tenha uqe mexer aqui para receber numeros
                       if (value.isEmpty) {
-                        return 'please enter your name';
+                        return 'please enter the name';
                       }
                     },
                     decoration: InputDecoration(
-                        labelText: 'Last Name',
-                        hintText: 'Enter Your First Name',
+                        labelText: 'Telefone',
+                        hintText: 'Enter With Hotel Number',
                         labelStyle: textStyle,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0))),

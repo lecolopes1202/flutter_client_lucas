@@ -18,7 +18,7 @@ class updateEmployee extends StatefulWidget {
 
 Future<EmployeeModel> updateEmployees(
     EmployeeModel employee, BuildContext context) async {
-  var Url = "https://lippe-hero-app.herokuapp.com/updateemployee";
+  var Url = "https://proj-lucas-server.herokuapp.com/updateemployee";
   var response = await http.put(Url,
       headers: <String, String>{"Content-Type": "application/json"},
       body: jsonEncode(employee));
@@ -54,7 +54,7 @@ class updateEmployeeState extends State<updateEmployee> {
     TextStyle textStyle = Theme.of(context).textTheme.subtitle2;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Update Employee'),
+          title: Text('Update Hotel'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -80,8 +80,8 @@ class updateEmployeeState extends State<updateEmployee> {
                           }
                         },
                         decoration: InputDecoration(
-                            labelText: 'Employee ID',
-                            hintText: 'Enter Employee ID',
+                            labelText: 'Hotel ID',
+                            hintText: 'Enter Hotel ID',
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
@@ -94,12 +94,12 @@ class updateEmployeeState extends State<updateEmployee> {
                         controller: firstController,
                         validator: (String value) {
                           if (value.isEmpty) {
-                            return 'please enter your name';
+                            return 'please enter teh Hotelname';
                           }
                         },
                         decoration: InputDecoration(
-                            labelText: 'First Name',
-                            hintText: 'Enter Your First Name',
+                            labelText: 'Hotel Name',
+                            hintText: 'Enter With Hotel Name',
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),

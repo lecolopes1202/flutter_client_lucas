@@ -19,7 +19,7 @@ class getAllEmployeesState extends State<getemployees> {
   var employess = List<EmployeeModel>.generate(200, (index) => null);
 
   Future<List<EmployeeModel>> getEmployees() async {
-    var data = await http.get('https://lippe-hero-app.herokuapp.com/getallemployees');
+    var data = await http.get('https://proj-lucas-server.herokuapp.com/getallemployees');
     var jsonData = json.decode(data.body);
 
     List<EmployeeModel> employee = [];
@@ -37,7 +37,7 @@ class getAllEmployeesState extends State<getemployees> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("All Employees Details"),
+        title: new Text("All Hoteis Details"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -57,7 +57,7 @@ class getAllEmployeesState extends State<getemployees> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                    title: Text('ID' + ' ' + 'First Name' + ' ' + 'Last Name'),
+                    title: Text('ID' + ' ' + 'Name' + ' ' + 'Telefone'),
                     subtitle: Text('${snapshot.data[index].id}' +
                         '${snapshot.data[index].firstName}' +
                         '${snapshot.data[index].lastName}'),
@@ -83,7 +83,7 @@ class DetailPage extends StatelessWidget {
   DetailPage(this.employee);
 
   deleteEmployee1(EmployeeModel employee) async {
-    final url = Uri.parse('http://localhost:8080/deleteemployee');
+    final url = Uri.parse('https://proj-lucas-server.herokuapp.com/deleteemployee');
     final request = http.Request("DELETE", url);
     request.headers
         .addAll(<String, String>{"Content-type": "application/json"});
@@ -111,11 +111,11 @@ class DetailPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Text('FirstName' +
+        child: Text('Name' +
             ' ' +
             employee.firstName +
             ' ' +
-            'LastName' +
+            'Telefone' +
             employee.lastName),
       ),
       floatingActionButton: FloatingActionButton(

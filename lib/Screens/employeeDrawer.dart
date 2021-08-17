@@ -16,7 +16,7 @@ class employeeDrawerState extends State<employeeDrawer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Employee Management'),
+        title: Text('Hotel Management'),
       ),
       body: Center(child: Text('Welcome To PXP Channel')),
       drawer: Drawer(
@@ -24,13 +24,13 @@ class employeeDrawerState extends State<employeeDrawer> {
           padding: EdgeInsets.only(top: minimumPadding, bottom: minimumPadding),
           children: <Widget>[
             DrawerHeader(
-              child: Text('Employee Management'),
+              child: Text('Hotel Management'),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
             ),
             ListTile(
-              title: Text('Register Employee'),
+              title: Text('Register Hotel'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -39,7 +39,7 @@ class employeeDrawerState extends State<employeeDrawer> {
               },
             ),
             ListTile(
-              title: Text('Get Employees'),
+              title: Text('Get Hotel'),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => getemployees()));
