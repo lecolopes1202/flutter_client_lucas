@@ -26,7 +26,7 @@ Future<EmployeeModel> registerEmployees(
         'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
         'Access-Control-Allow-Credentials': 'true',
       },
-      body: jsonEncode(<String, String>{
+      body: jsonEncode(<String, String>{ //Sera que aqui precisa botar mais algo alem dos nomes, O mapa ?
         "firstName": firstName,
         "lastName": lastName,
       }));
@@ -48,6 +48,7 @@ class registerEmployeeState extends State<registerEmployee> {
 
   TextEditingController firstController = TextEditingController();
   TextEditingController lastController = TextEditingController();
+  TextEditingController mapController = TextEditingController(); //adicionei pro mapa
 
   EmployeeModel employee;
 
@@ -99,15 +100,39 @@ class registerEmployeeState extends State<registerEmployee> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0))),
                   )),
+              /*
+              //adicionando o mapa
+              Padding(
+                  padding: EdgeInsets.only(
+                      top: minimumPadding, bottom: minimumPadding),
+                  child: TextFormField(
+                    style: textStyle, ?
+                    controller: mapController,
+                    /*validator: (String ? value) { 
+                      if (value.isEmpty) {
+                        return 'please click the correct coordinate on the map';
+                      }*/
+                    },
+                    decoration: InputDecoration(
+                        /*labelText: 'Coordenada',
+                        hintText: 'Enter with the correct coordinate on the map',
+                        labelStyle: textStyle, ?
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0))),*/
+                  )),
+              // fechado adicionado o mapa
+            */
               RaisedButton(
                   child: Text('Submit'),
                   onPressed: () async {
                     String firstName = firstController.text;
                     String lastName = lastController.text;
+                    // String lastName = lastController.text; //deixar no formato do mapa
                     EmployeeModel employees =
-                        await registerEmployees(firstName, lastName, context);
+                        await registerEmployees(firstName, lastName, context); // add a variável do mapa
                     firstController.text = '';
                     lastController.text = '';
+                    // add a variável do mapa
                     setState(() {
                       employee = employees;
                     });

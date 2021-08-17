@@ -29,6 +29,7 @@ class employeeDrawerState extends State<employeeDrawer> {
                 color: Colors.blue,
               ),
             ),
+            
             ListTile(
               title: Text('Register Hotel'),
               onTap: () {
@@ -38,8 +39,9 @@ class employeeDrawerState extends State<employeeDrawer> {
                         builder: (context) => registerEmployee()));
               },
             ),
+            
             ListTile(
-              title: Text('Get Hotel'),
+              title: Text('Lista de Hoteis'),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => getemployees()));
